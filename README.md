@@ -7,6 +7,7 @@
 - 제공된 Dataset에 대해 Stratified KFold 5를 적용했습니다. 이것을 적용하기 위해 Dataset Class에서 해당 데이터의 label도 따로 모아 후에 학습할 때 넘겨줬습니다.
 
 #### 사용한 모델 Architecture 및 Hyper Parameter
+
 1. Resnet101 & Resnet 50
     - LB 점수 : 0.7100
     - Data Augmentation
@@ -16,6 +17,7 @@
       - Batch Size를 처음에 256으로 시작했다가 최종적으로 32를 적용해 Local Minimum에 빠지는 문제를 해결했습니다.
       - Learning rate를 0.01, 1e-04, 1e-05 등 적용 해 가장 나은 값이 1e-04라는 것을 알게 되어습니다.
       - Optimizer 부분에서 SGD와 Adam을 두고 여러 번 반복 시도를 하였지만 큰 차이가 없다는 결론을 내렸습니다.
+     
 2.	OpenCV Age Detection
     1.	세가지 분류에 대해 Mask Detection, Gender는 높은 확률로 맞췄지만 Age에 대해 성능이 좋지 않았던 점에서 시도하게 되었습니다.
     1.	OpenCV에 있는 Age Detection을 적용해 Images의 나이를 예측했습니다. 이 과정은 먼저 MTCNN에 있는 Pretrained 모델을 불러와 Face Detection을 통해 얼굴의 위치를 찾게 됩니다.
